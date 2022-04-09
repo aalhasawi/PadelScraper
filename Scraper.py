@@ -53,6 +53,6 @@ for singleVenue in nestedVenue:
     # venuesList.append(venueFullName)
 
 
-print(venuesList[0])
+print(venuesList)
 
 driver.close()
