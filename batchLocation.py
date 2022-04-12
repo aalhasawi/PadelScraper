@@ -29,17 +29,17 @@ venueIds=[]
 
 # foundError=0
 
-for count in range(7,12):
+for count in range(289,500):
     URL = "https://www.li3ib.com/en-kw/venues/"+str(count)+"?&date="+dateEntered
     driver.get(URL)
-    time.sleep(5)
+    time.sleep(15)
         # html = soup.find("div",{"class":"sc-hiSbYr XqbgT"}).h1.text.strip()
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
     try:
         print(soup.find("div",{"class":"sc-hiSbYr XqbgT"}).h1.text.strip())
     except:
-        venueIds.append({"venueName":soup.find("div",{"class":"venue__summary"}).p.span.text.strip(),"venueLocation":""})
+        venueIds.append({"venueName":soup.find("div",{"class":"venue__summary"}).p.span.text.strip(),"count":count})
     print(venueIds)
     # try:
     #     soup.find("div",{"class":"sc-hiSbYr XqbgT"})

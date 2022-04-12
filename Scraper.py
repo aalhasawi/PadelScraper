@@ -20,7 +20,7 @@ driver = webdriver.Firefox()
 URL = "https://www.li3ib.com/en-kw/venues?sport="+sportEntered+"&date="+dateEntered
 driver.get(URL)
 
-time.sleep(6)
+time.sleep(20)
 
 html = driver.page_source
 soup = BeautifulSoup(html, "html.parser")

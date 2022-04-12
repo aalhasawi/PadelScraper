@@ -25,7 +25,7 @@ venuesList = [
 URL = "https://www.li3ib.com/en-kw/venues?sport="+sportEntered+"&date="+dateEntered
 driver.get(URL)
 
-time.sleep(5)
+time.sleep(10)
 
 html = driver.page_source
 soup = BeautifulSoup(html, "html.parser")
