@@ -1,7 +1,4 @@
-from tkinter import X
-
-
-courtsArr = [{'id': 1, 'Title': 'Vamos Indoor', 'SubName': 'Vamos Light Court 1', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '6:00PM', '7:00PM', '8:00PM', '11:59PM'], 'Size': '2x2', 'venID': 386, 'City': 'Shuwaikh Industrial 1'},
+[{'id': 1, 'Title': 'Vamos Indoor', 'SubName': 'Vamos Light Court 1', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '6:00PM', '7:00PM', '8:00PM', '11:59PM'], 'Size': '2x2', 'venID': 386, 'City': 'Shuwaikh Industrial 1'},
 {'id': 2, 'Title': 'Vamos Indoor', 'SubName': 'Vamos Light Court 2', 'AvailableTime': ['2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', '11:00PM', '11:59PM'], 'Size': '2x2', 'venID': 386, 'City': 'Shuwaikh Industrial 1'},
 {'id': 3, 'Title': 'Salmiya Padel', 'SubName': 'B9 Court', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '3:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', '9:00PM'], 'Size': '2x2', 'venID': 272, 'City': '8 St'},
 {'id': 4, 'Title': 'The Courts- Al Rai', 'SubName': 'Al Rai Court 1', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM'], 'Size': '2x2', 'venID': 339, 'City': 'Shuwaikh Industrial'},
@@ -127,22 +124,3 @@ courtsArr = [{'id': 1, 'Title': 'Vamos Indoor', 'SubName': 'Vamos Light Court 1'
 {'id': 143, 'Title': 'Uptown Bneid Al Qar', 'SubName': 'Uptown Court 1', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', '9:00PM', '10:00PM', '11:00PM', '11:59PM'], 'Size': '2x2', 'venID': 355, 'City': 'Al Kuwayt'},
 {'id': 144, 'Title': 'Uptown Bneid Al Qar', 'SubName': 'Uptown Court 2', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', '9:00PM', '10:00PM', '11:00PM', '11:59PM'], 'Size': '2x2', 'venID': 355, 'City': 'Al Kuwayt'},
 {'id': 145, 'Title': 'Uptown Bneid Al Qar', 'SubName': 'Uptown Court 3 (1 vs 1)', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', '9:00PM', '10:00PM', '11:00PM', '11:59PM'], 'Size': '1x1', 'venID': 355, 'City': 'Al Kuwayt'}]
-
-s = set()
-v = set()
-for i in range(len(courtsArr)):
-    s.add(courtsArr[i]['Title'])
-    v.add(courtsArr[i]['venID'])
-
-# print(s)
-# print(v)
-
-
-# for i in dictionary:
-#     newD[i]['venueID'] = dictionary['1'][i]
-# print(newD)
-
-# dict = {'uniID':"",'Name':""}
-# for x in range(len(v)):
-#     dict['uniID'] = x
-# print(dict)

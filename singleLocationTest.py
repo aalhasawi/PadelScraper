@@ -28,12 +28,12 @@ gmaps = googlemaps.Client(key=APIKey)
 """
 To-Do Requirements:
 
-1. Need to pass each venueID in an array and get location of the venue from the HTML.
-2. Slice the LonLat and store in a var.
-3. Pass the vars in a loop to reverse_geocoder.
-4. Get results and append to the fullCourts array in related dictionary index.
+1. Need to pass each venueID in an array and get location of the venue from the HTML. done
+2. Slice the LonLat and store in a var. done
+3. Pass the vars in a loop to reverse_geocoder. done
+4. Get results and append to the fullCourts array in related dictionary index. done
   4.1: Result1: Duration from Origin (currently hardcoded Qortuba)
-  4.2: Result2: City (pass into isValid to only get English results and cities not governates)
+  4.2: Result2: City (pass into isValid to only get English results and cities not governates). done
 5. Get prices from another loop.
 6. Validate in each run if list is up to date by checking count existing and actual count
 7. If the venue does not exist look it up and run the whole process to append it to the full array (textFile)

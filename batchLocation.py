@@ -22,12 +22,10 @@ venuesList = [
 ]
 driver = webdriver.Firefox()
 URL = "https://www.li3ib.com/en-kw/venues/"+str(count)+"?&date="+dateEntered
-# https://www.li3ib.com/en-kw/venues/386?date=2022-04-22
-# https://www.li3ib.com/en-kw/error
+
 
 venueIds=[]
 
-# foundError=0
 
 for count in range(289,500):
     URL = "https://www.li3ib.com/en-kw/venues/"+str(count)+"?&date="+dateEntered
