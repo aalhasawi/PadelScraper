@@ -1,4 +1,13 @@
 from tkinter import X
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+from bs4 import BeautifulSoup
+
+driver = webdriver.Firefox()
 
 
 courtsArr = [{'id': 1, 'Title': 'Vamos Indoor', 'SubName': 'Vamos Light Court 1', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '6:00PM', '7:00PM', '8:00PM', '11:59PM'], 'Size': '2x2', 'venID': 386, 'City': 'Shuwaikh Industrial 1'},
@@ -128,21 +137,50 @@ courtsArr = [{'id': 1, 'Title': 'Vamos Indoor', 'SubName': 'Vamos Light Court 1'
 {'id': 144, 'Title': 'Uptown Bneid Al Qar', 'SubName': 'Uptown Court 2', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', '9:00PM', '10:00PM', '11:00PM', '11:59PM'], 'Size': '2x2', 'venID': 355, 'City': 'Al Kuwayt'},
 {'id': 145, 'Title': 'Uptown Bneid Al Qar', 'SubName': 'Uptown Court 3 (1 vs 1)', 'AvailableTime': ['1:00AM', '2:00AM', '3:00AM', '4:00AM', '5:00AM', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', '9:00PM', '10:00PM', '11:00PM', '11:59PM'], 'Size': '1x1', 'venID': 355, 'City': 'Al Kuwayt'}]
 
-s = set()
-v = set()
+s = []
+v = []
+c=[]
+
 for i in range(len(courtsArr)):
-    s.add(courtsArr[i]['Title'])
-    v.add(courtsArr[i]['venID'])
+    if courtsArr[i]['Title'] not in s:
+        s.append(courtsArr[i]['Title'])
+        v.append(courtsArr[i]['venID'])
+        c.append(courtsArr[i]['City'])
 
 # print(s)
-# print(v)
+dict = {}
 
+for i in range(len(s)):
+    dict[i] = {'Title':s[i],'venueID':v[i],'City':c[i],'LonLat':'','Price':''}
 
-# for i in dictionary:
-#     newD[i]['venueID'] = dictionary['1'][i]
-# print(newD)
-
-# dict = {'uniID':"",'Name':""}
-# for x in range(len(v)):
-#     dict['uniID'] = x
+# for x in dict:
+#     print(dict[x]['Title'])
 # print(dict)
+
+foo = open("masterParentList.txt", "a")
+for x in range(len(dict)):
+    
+    currID = dict[x]['venueID']
+
+    URL = "https://www.li3ib.com/en-kw/venues/"+str(currID)+"?date=2022-04-28"
+    driver.get(URL)
+    element = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME,'gm-style'))) 
+    time.sleep(1)
+
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    getLoc = soup.find('div', {'class': 'gm-style'}).a['href']
+
+
+    firstSlice = "maps?ll="
+    secSlice = "&z=12&t=m&hl=en-US&gl=US&mapclient=apiv3"
+
+    startSlice = getLoc.find(firstSlice)
+    endSlice = getLoc.find(secSlice)
+    Cords = getLoc[getLoc.find(firstSlice)+len(firstSlice):-len(secSlice)]
+
+    dict[x]['LonLat'] = Cords
+    print(dict[x])
+        
+print(dict,file=foo)
+foo.close()
+driver.close()
